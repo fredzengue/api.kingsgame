@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->string('transaction_id');
             $table->unsignedBigInteger('payment_method_id');
             $table->foreign('payment_method_id')
-            ->references('payment_method_id')
+            ->references('id')
             ->on('payment_methods');
             $table->timestamps();
         });

@@ -16,13 +16,15 @@ class CreateWithdrawallsTable extends Migration
         Schema::create('withdrawalls', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('payment_id')->unique();
             $table->foreign('user_id')
-                ->references('user_id')
+                ->references('id')
                 ->on('users');
-            $table->integer('amount');
-            $table->string('payment_method');
-            $table->string('transaction_id');
-            $table->string('status');
+            $table->foreign('payment_id')
+                ->references('id')
+                ->on('payments');
+            $table->double('amount');
+            $table->integer('status');
             $table->timestamps();
         });
     }
