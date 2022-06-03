@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
 });
-Route::apiResource('deposit',App\Http\Controllers\DepositController::class);
-Auth::routes();
+Route::apiResource('loan', App\http\Controllers\LoanController::class);

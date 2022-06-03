@@ -17,10 +17,10 @@ class CreateLoansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-                ->references('user_id')
+                ->references('id')
                 ->on('users');
-            $table->integer('amount');
-            $table->string('refunded');
+            $table->double('amount');
+            $table->integer('status');
             $table->timestamps();
         });
     }
